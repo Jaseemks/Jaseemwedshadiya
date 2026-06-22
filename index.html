@@ -35,36 +35,26 @@
             line-height: 1.6;
         }
 
+        /* ===== FULL FLORAL BACKGROUND - INCREASED VISIBILITY ===== */
         .watercolor-bg {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -1;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(181, 201, 180, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(181, 201, 180, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(248, 246, 241, 0.8) 0%, rgba(235, 232, 225, 0.5) 100%);
+            background-image: url('https://image.qwenlm.ai/public_source/6cd5d9cc-e733-4c03-b10c-6a0bcff05ce8/10505f09f-b2bc-489e-bfa7-fe2e77aa1db5.png');
+            background-size: 500px 500px;
+            background-repeat: repeat;
+            background-position: center;
+            opacity: 0.7;
         }
 
-        .floral-corner {
+        /* Lighter cream overlay so flowers show through */
+        .watercolor-bg::after {
+            content: '';
             position: absolute;
-            width: 220px; height: 220px;
-            opacity: 0.75;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .floral-corner img { width: 100%; height: 100%; object-fit: contain; }
-        .floral-tl { top: -30px; left: -30px; }
-        .floral-tr { top: -30px; right: -30px; transform: scaleX(-1); }
-        .floral-bl { bottom: -30px; left: -30px; transform: scaleY(-1); }
-        .floral-br { bottom: -30px; right: -30px; transform: scale(-1, -1); }
-
-        @media (max-width: 768px) {
-            .floral-corner { width: 140px; height: 140px; opacity: 0.6; }
-            .floral-tl { top: -20px; left: -20px; }
-            .floral-tr { top: -20px; right: -20px; }
-            .floral-bl { bottom: -20px; left: -20px; }
-            .floral-br { bottom: -20px; right: -20px; }
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(248, 246, 241, 0.25);
         }
 
         .section {
@@ -83,24 +73,32 @@
             position: relative;
             z-index: 10;
             padding: 60px 40px;
-            background: rgba(248, 246, 241, 0.7);
+            background: rgba(255, 255, 255, 0.6);
             border-radius: 20px;
-            backdrop-filter: blur(2px);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(181, 201, 180, 0.25);
         }
 
-        @media (max-width: 768px) { .section-inner { padding: 50px 20px; } }
+        .hero .section-inner {
+            padding: 80px 40px;
+            background: rgba(255, 255, 255, 0.5);
+        }
 
-        .hero { background: linear-gradient(180deg, rgba(248,246,241,0) 0%, rgba(220,228,220,0.2) 50%, rgba(248,246,241,0) 100%); }
-        .hero .section-inner { padding: 70px 40px; }
+        @media (max-width: 768px) { 
+            .section-inner { padding: 50px 20px; }
+            .hero .section-inner { padding: 70px 25px; }
+        }
+
+        .hero { background: transparent; }
 
         .invitation-text {
             font-family: 'Cormorant Garamond', serif;
             font-size: 0.95rem;
             letter-spacing: 0.35em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--text-dark);
             margin-bottom: 8px;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         .celebrate-text {
@@ -108,12 +106,15 @@
             font-size: 0.85rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--text-dark);
             margin-bottom: 30px;
-            font-weight: 300;
+            font-weight: 400;
         }
 
-        .couple-names { margin: 20px 0 25px; }
+        .couple-names { 
+            margin: 20px 0 25px;
+            padding: 10px 0;
+        }
 
         .name-first, .name-second {
             font-family: 'Great Vibes', cursive;
@@ -121,6 +122,8 @@
             color: var(--text-dark);
             line-height: 1.1;
             display: block;
+            position: relative;
+            z-index: 3;
         }
 
         .ampersand {
@@ -130,6 +133,7 @@
             display: block;
             margin: 5px 0;
             position: relative;
+            z-index: 3;
         }
         .ampersand::before, .ampersand::after {
             content: '';
@@ -187,7 +191,7 @@
             font-size: 1rem;
             letter-spacing: 0.4em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--text-dark);
             margin-top: 5px;
         }
 
@@ -223,7 +227,7 @@
         .venue-location {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
-            color: var(--text-muted);
+            color: var(--text-dark);
             letter-spacing: 0.15em;
             margin-bottom: 10px;
         }
@@ -254,13 +258,13 @@
         }
         .map-btn svg { width: 20px; height: 20px; }
 
-        .countdown-section { background: linear-gradient(180deg, rgba(220,228,220,0.15) 0%, rgba(248,246,241,0) 100%); }
+        .countdown-section { background: transparent; }
         .countdown-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--text-dark);
             margin-bottom: 30px;
         }
         .countdown { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
@@ -277,16 +281,11 @@
             font-size: 0.85rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--text-dark);
             margin-top: 8px;
         }
 
-        /* ============================================
-           LOVE STORY / OUR JOURNEY SECTION
-           ============================================ */
-        .journey-section {
-            background: linear-gradient(180deg, rgba(248,246,241,0) 0%, rgba(220,228,220,0.2) 50%, rgba(248,246,241,0) 100%);
-        }
+        .journey-section { background: transparent; }
 
         .journey-title {
             font-family: 'Great Vibes', cursive;
@@ -298,13 +297,12 @@
         .journey-subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
-            color: var(--text-muted);
+            color: var(--text-dark);
             font-style: italic;
             margin-bottom: 50px;
             letter-spacing: 0.05em;
         }
 
-        /* Timeline Container */
         .timeline {
             position: relative;
             max-width: 560px;
@@ -312,7 +310,6 @@
             padding: 10px 0 20px;
         }
 
-        /* Vertical Line - Desktop (centered) */
         .timeline::before {
             content: '';
             position: absolute;
@@ -329,7 +326,6 @@
             transform: translateX(-50%);
         }
 
-        /* Timeline Item */
         .timeline-item {
             position: relative;
             margin-bottom: 35px;
@@ -340,43 +336,24 @@
 
         .timeline-item:last-child { margin-bottom: 0; }
 
-        /* ODD items: content on LEFT, dot in middle */
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-        }
-
+        .timeline-item:nth-child(odd) { flex-direction: row; }
         .timeline-item:nth-child(odd) .timeline-content {
             text-align: right;
             padding-right: 30px;
             padding-left: 0;
         }
+        .timeline-item:nth-child(odd) .timeline-spacer { flex: 1; }
 
-        .timeline-item:nth-child(odd) .timeline-spacer {
-            flex: 1;
-        }
-
-        /* EVEN items: content on RIGHT, dot in middle */
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
         .timeline-item:nth-child(even) .timeline-content {
             text-align: left;
             padding-left: 30px;
             padding-right: 0;
         }
+        .timeline-item:nth-child(even) .timeline-spacer { flex: 1; }
 
-        .timeline-item:nth-child(even) .timeline-spacer {
-            flex: 1;
-        }
+        .timeline-content { flex: 1; min-width: 0; }
 
-        /* Timeline Content */
-        .timeline-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        /* Timeline Dot */
         .timeline-dot {
             width: 44px;
             height: 44px;
@@ -399,7 +376,6 @@
             box-shadow: 0 6px 20px rgba(196, 169, 106, 0.35);
         }
 
-        /* Timeline Text */
         .timeline-year {
             font-family: 'Playfair Display', serif;
             font-size: 0.85rem;
@@ -422,12 +398,11 @@
         .timeline-desc {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
-            color: var(--text-muted);
+            color: var(--text-dark);
             font-style: italic;
             line-height: 1.5;
         }
 
-        /* Special highlight for wedding day item */
         .timeline-item.highlight .timeline-dot {
             background: var(--sage);
             color: white;
@@ -437,87 +412,30 @@
             font-size: 1.4rem;
         }
 
-        .timeline-item.highlight .timeline-year {
-            color: var(--sage-dark);
-            font-size: 0.9rem;
-        }
+        .timeline-item.highlight .timeline-year { color: var(--sage-dark); font-size: 0.9rem; }
+        .timeline-item.highlight .timeline-event { color: var(--sage-dark); font-size: 1.35rem; }
 
-        .timeline-item.highlight .timeline-event {
-            color: var(--sage-dark);
-            font-size: 1.35rem;
-        }
-
-        /* ============================================
-           MOBILE TIMELINE FIX
-           ============================================ */
         @media (max-width: 600px) {
-            .timeline {
-                max-width: 100%;
-                padding-left: 10px;
-            }
-
-            /* Move line to LEFT side on mobile */
-            .timeline::before {
-                left: 28px;
-                transform: none;
-                width: 2px;
-            }
-
-            /* All items: dot on left, content on right */
+            .timeline { max-width: 100%; padding-left: 10px; }
+            .timeline::before { left: 28px; transform: none; width: 2px; }
             .timeline-item,
             .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
-                flex-direction: row !important;
-            }
-
-            /* Hide spacers on mobile */
-            .timeline-spacer {
-                display: none !important;
-            }
-
-            /* Dot: fixed position on the left line */
+            .timeline-item:nth-child(even) { flex-direction: row !important; }
+            .timeline-spacer { display: none !important; }
             .timeline-dot {
-                width: 38px;
-                height: 38px;
-                font-size: 1.05rem;
-                flex-shrink: 0;
-                margin-right: 18px;
-                order: 1;
+                width: 38px; height: 38px; font-size: 1.05rem;
+                flex-shrink: 0; margin-right: 18px; order: 1;
             }
-
-            .timeline-item.highlight .timeline-dot {
-                width: 44px;
-                height: 44px;
-                font-size: 1.2rem;
-            }
-
-            /* Content: takes remaining space on right */
+            .timeline-item.highlight .timeline-dot { width: 44px; height: 44px; font-size: 1.2rem; }
             .timeline-content,
             .timeline-item:nth-child(odd) .timeline-content,
             .timeline-item:nth-child(even) .timeline-content {
-                flex: 1;
-                text-align: left !important;
-                padding: 0 !important;
-                order: 2;
-                min-width: 0;
+                flex: 1; text-align: left !important; padding: 0 !important; order: 2; min-width: 0;
             }
-
-            .timeline-year {
-                font-size: 0.75rem;
-                letter-spacing: 0.15em;
-            }
-
-            .timeline-event {
-                font-size: 1.1rem;
-            }
-
-            .timeline-desc {
-                font-size: 0.95rem;
-            }
-
-            .timeline-item {
-                margin-bottom: 28px;
-            }
+            .timeline-year { font-size: 0.75rem; letter-spacing: 0.15em; }
+            .timeline-event { font-size: 1.1rem; }
+            .timeline-desc { font-size: 0.95rem; }
+            .timeline-item { margin-bottom: 28px; }
         }
 
         .footer {
@@ -527,6 +445,7 @@
             font-size: 0.9rem;
             color: var(--text-muted);
             letter-spacing: 0.1em;
+            background: rgba(248, 246, 241, 0.7);
         }
         .footer-heart { color: var(--sage); font-size: 1.2rem; }
 
@@ -553,26 +472,27 @@
         .delay-6 { transition-delay: 0.6s; }
         .delay-7 { transition-delay: 0.7s; }
 
+        /* ===== FALLING PETALS ===== */
         .petal {
             position: fixed;
-            background: radial-gradient(ellipse at center, rgba(180, 215, 180, 0.35) 0%, rgba(160, 200, 160, 0.25) 60%, rgba(140, 185, 140, 0.15) 100%);
+            background: radial-gradient(ellipse at center, rgba(180, 215, 180, 0.65) 0%, rgba(160, 200, 160, 0.5) 60%, rgba(140, 185, 140, 0.35) 100%);
             border-radius: 50% 0 50% 50%;
             pointer-events: none;
             z-index: 10001;
             animation: petalFall linear infinite;
-            box-shadow: 0 2px 6px rgba(160, 200, 160, 0.1);
+            box-shadow: 0 2px 6px rgba(160, 200, 160, 0.25);
         }
 
         .petal.mint {
-            background: radial-gradient(ellipse at center, rgba(175, 210, 175, 0.37) 0%, rgba(155, 195, 155, 0.27) 60%, rgba(135, 180, 135, 0.17) 100%);
+            background: radial-gradient(ellipse at center, rgba(175, 210, 175, 0.68) 0%, rgba(155, 195, 155, 0.53) 60%, rgba(135, 180, 135, 0.38) 100%);
         }
 
         .petal.sage {
-            background: radial-gradient(ellipse at center, rgba(185, 218, 185, 0.33) 0%, rgba(165, 203, 165, 0.23) 60%, rgba(145, 188, 145, 0.13) 100%);
+            background: radial-gradient(ellipse at center, rgba(185, 218, 185, 0.62) 0%, rgba(165, 203, 165, 0.47) 60%, rgba(145, 188, 145, 0.32) 100%);
         }
 
         .petal.pale {
-            background: radial-gradient(ellipse at center, rgba(190, 220, 190, 0.35) 0%, rgba(170, 208, 170, 0.25) 60%, rgba(150, 193, 150, 0.15) 100%);
+            background: radial-gradient(ellipse at center, rgba(190, 220, 190, 0.65) 0%, rgba(170, 208, 170, 0.5) 60%, rgba(150, 193, 150, 0.35) 100%);
         }
 
         @keyframes petalFall {
@@ -633,7 +553,7 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             background: var(--cream);
-            z-index: 1000;
+            z-index: 10000;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -641,7 +561,13 @@
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
         .envelope-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .envelope-icon { font-size: 4rem; margin-bottom: 20px; animation: float 2s ease-in-out infinite; }
+        .envelope-icon { 
+            font-size: 4rem; 
+            margin-bottom: 20px; 
+            animation: float 2s ease-in-out infinite;
+            position: relative;
+            z-index: 10002;
+        }
         .open-btn {
             padding: 16px 50px;
             background: var(--sage);
@@ -655,6 +581,8 @@
             cursor: pointer;
             transition: all 0.4s ease;
             margin-top: 20px;
+            position: relative;
+            z-index: 10002;
         }
         .open-btn:hover { background: var(--sage-dark); transform: scale(1.05); }
         .envelope-names {
@@ -662,6 +590,8 @@
             font-size: clamp(2rem, 6vw, 3rem);
             color: var(--text-dark);
             margin-bottom: 5px;
+            position: relative;
+            z-index: 10002;
         }
         .envelope-sub {
             font-family: 'Cormorant Garamond', serif;
@@ -669,6 +599,8 @@
             letter-spacing: 0.2em;
             color: var(--text-muted);
             text-transform: uppercase;
+            position: relative;
+            z-index: 10002;
         }
 
         .details-grid {
@@ -680,7 +612,7 @@
         }
         .detail-card {
             padding: 30px 20px;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.65);
             border-radius: 16px;
             border: 1px solid rgba(181,201,180,0.3);
         }
@@ -690,11 +622,11 @@
             margin-bottom: 8px;
             color: var(--sage-dark);
         }
-        .detail-card p { font-size: 1rem; color: var(--text-muted); }
+        .detail-card p { font-size: 1rem; color: var(--text-dark); }
         .venue-card {
             margin-top: 30px;
             padding: 25px;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.65);
             border-radius: 16px;
             border: 1px solid rgba(181,201,180,0.3);
         }
@@ -708,6 +640,7 @@
     </style>
 </head>
 <body>
+    <!-- Full floral background - now more visible -->
     <div class="watercolor-bg"></div>
     <div id="petals-container"></div>
 
@@ -725,13 +658,7 @@
         <button class="nav-dot" data-section="3" onclick="scrollToSection(3)"></button>
     </nav>
 
-    <!-- Hero Section -->
     <section class="section hero" id="section-0">
-        <div class="floral-corner floral-tl"><img src="https://image.qwenlm.ai/public_source/6cd5d9cc-e733-4c03-b10c-6a0bcff05ce8/13f541608-2b07-47da-b132-5636437cb76b.png" alt=""></div>
-        <div class="floral-corner floral-tr"><img src="https://image.qwenlm.ai/public_source/6cd5d9cc-e733-4c03-b10c-6a0bcff05ce8/1eb958680-6b4b-48dd-ac3b-60e33de994b7.png" alt=""></div>
-        <div class="floral-corner floral-bl"><img src="https://image.qwenlm.ai/public_source/6cd5d9cc-e733-4c03-b10c-6a0bcff05ce8/148117b35-c89a-4071-879c-ec965955d7a4.png" alt=""></div>
-        <div class="floral-corner floral-br"><img src="https://image.qwenlm.ai/public_source/6cd5d9cc-e733-4c03-b10c-6a0bcff05ce8/124365e64-f7c2-4a4c-96b8-121b4d90574b.png" alt=""></div>
-
         <div class="section-inner">
             <p class="invitation-text animate-in delay-1">You Are Invited</p>
             <p class="celebrate-text animate-in delay-2">To Celebrate The Wedding Of</p>
@@ -758,7 +685,7 @@
             <p class="day-name animate-in delay-5">Sunday</p>
 
             <div class="time-display animate-in delay-5">
-                <span >⏰</span>
+                <span>⏰</span>
                 <span>11:00 AM – 3:00 PM</span>
             </div>
 
@@ -768,23 +695,23 @@
                 <span class="divider-line"></span>
             </div>
 
+            <!-- 📍 Location emoji added -->
             <div class="venue-pin animate-in delay-5">📍</div>
             <h2 class="venue-name animate-in delay-5">SHC Jubilee Hall</h2>
             <p class="venue-location animate-in delay-5">Kalpetta</p>
 
-            <!-- <a href="https://maps.app.goo.gl/tDe1GbnzLDQAYkda6" target="_blank" rel="noopener" class="map-btn animate-in delay-5">
+          <!--<a href="https://maps.app.goo.gl/tDe1GbnzLDQAYkda6" target="_blank" rel="noopener" class="map-btn animate-in delay-5">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                 </svg>
                 View on Google Maps
             </a>-->
-
+            <div>Scroll</div>
             <div class="scroll-indicator">↓</div>
         </div>
     </section>
 
-    <!-- Countdown Section -->
     <section class="section countdown-section" id="section-1">
         <div class="section-inner">
             <p class="countdown-title animate-in">Counting Down To Our Special Day</p>
@@ -807,7 +734,6 @@
         </div>
     </section>
 
-    <!-- Details Sec -->
     <section class="section" id="section-2">
         <div class="section-inner">
             <div class="divider animate-in">
@@ -822,7 +748,7 @@
                 <div class="detail-card animate-in delay-2">
                     <div style="font-size: 2rem; margin-bottom: 10px;">💍</div>
                     <h3>Wedding</h3>
-                    <p>July 25, 2025</p>
+                    <p>July 25, 2026</p>
                     <p>At Balussery</p>
                 </div>
                 <div class="detail-card animate-in delay-3">
@@ -830,14 +756,16 @@
                     <h3>Reception</h3>
                     <p>July 26, 2026</p>
                     <p>SHC Jubilee Hall</p>
+                    <p>Kalpetta</p>
                 </div>
             </div>
 
             <div class="venue-card animate-in delay-4">
+                <!-- 📍 Location emoji added -->
                 <div style="font-size: 2rem; margin-bottom: 10px;">📍</div>
                 <h3>Reception Venue</h3>
                 <p style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">SHC Jubilee Hall</p>
-                <p style="font-size: 1rem; color: var(--text-muted);">Kalpetta, Wayanad</p>
+                <p style="font-size: 1rem; color: var(--text-dark);">Kalpetta, Wayanad</p>
                 <a href="https://maps.app.goo.gl/tDe1GbnzLDQAYkda6" target="_blank" rel="noopener" class="map-btn" style="margin-top: 15px; padding: 10px 25px; font-size: 0.9rem;">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -848,18 +776,17 @@
             </div>
 
             <div class="qr-section animate-in delay-5" style="margin-top: 35px; padding-top: 30px; border-top: 1px solid rgba(181, 201, 180, 0.4);">
-                <p class="qr-label" style="font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 15px;">Scan for Location</p>
+                <p class="qr-label" style="font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dark); margin-bottom: 15px;">Scan for Location</p>
                 <div class="qr-wrapper" style="display: inline-block; padding: 12px; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(107, 138, 106, 0.15); border: 1px solid rgba(181, 201, 180, 0.3);">
                     <a href="https://maps.app.goo.gl/tDe1GbnzLDQAYkda6" target="_blank" rel="noopener">
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://maps.app.goo.gl/tDe1GbnzLDQAYkda6&color=2c3e2d&bgcolor=ffffff&margin=10" alt="QR Code" style="width: 160px; height: 160px; display: block;">
                     </a>
                 </div>
-                <p class="qr-caption" style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-muted); margin-top: 15px; font-style: italic; line-height: 1.5;">Scan for direct<br><strong style="color: var(--text-dark); font-style: normal;">Google Maps location</strong></p>
+                <p class="qr-caption" style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-dark); margin-top: 15px; font-style: italic; line-height: 1.5;">Scan for direct<br><strong style="color: var(--text-dark); font-style: normal;">Google Maps location</strong></p>
             </div>
         </div>
     </section>
 
-    <!-- Our Journey / Love Story Section -->
     <section class="section journey-section" id="section-3">
         <div class="section-inner">
             <div class="divider animate-in">
@@ -872,18 +799,16 @@
             <p class="journey-subtitle animate-in delay-2">Two years of love, leading to forever</p>
 
             <div class="timeline">
-                <!-- 1. First Met -->
                 <div class="timeline-item animate-in delay-2">
                     <div class="timeline-content">
                         <div class="timeline-year">July 15, 2024</div>
                         <div class="timeline-event">First Met</div>
                         <div class="timeline-desc">The day our paths crossed and destiny smiled</div>
                     </div>
-                    <div class="timeline-dot">🌸</div>
+                    <div class="timeline-dot"></div>
                     <div class="timeline-spacer"></div>
                 </div>
 
-                <!-- 2. First Message -->
                 <div class="timeline-item animate-in delay-3">
                     <div class="timeline-spacer"></div>
                     <div class="timeline-dot">💬</div>
@@ -894,7 +819,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Engagement -->
                 <div class="timeline-item animate-in delay-4">
                     <div class="timeline-content">
                         <div class="timeline-year">July 28, 2024</div>
@@ -905,7 +829,6 @@
                     <div class="timeline-spacer"></div>
                 </div>
 
-                <!-- 4. Nikkah -->
                 <div class="timeline-item animate-in delay-5">
                     <div class="timeline-spacer"></div>
                     <div class="timeline-dot">🤲</div>
@@ -916,7 +839,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Dubai Life -->
                 <div class="timeline-item animate-in delay-5">
                     <div class="timeline-content">
                         <div class="timeline-year">July 1, 2025</div>
@@ -927,7 +849,6 @@
                     <div class="timeline-spacer"></div>
                 </div>
 
-                <!-- 6. Wedding Day (highlighted) -->
                 <div class="timeline-item highlight animate-in delay-6">
                     <div class="timeline-spacer"></div>
                     <div class="timeline-dot">💒</div>
@@ -938,7 +859,6 @@
                     </div>
                 </div>
 
-                <!-- 7. Reception -->
                 <div class="timeline-item highlight animate-in delay-7">
                     <div class="timeline-content">
                         <div class="timeline-year">July 26, 2026</div>
@@ -958,11 +878,12 @@
     </footer>
 
     <script>
+        createPetals();
+
         function openInvitation() {
             document.getElementById('envelopeOverlay').classList.add('hidden');
             document.body.style.overflow = 'auto';
             initAnimations();
-            createPetals();
         }
         document.body.style.overflow = 'hidden';
 
@@ -1004,24 +925,22 @@
 
         function createPetals() {
             const container = document.getElementById('petals-container');
-            const colors = ['rgba(181, 201, 180, 0.25)', 'rgba(143, 170, 142, 0.2)', 'rgba(200, 215, 200, 0.3)', 'rgba(220, 230, 220, 0.25)'];
-            for (let i = 0; i < 15; i++) {
+            const petalClasses = ['', 'mint', 'sage', 'pale'];
+            const petalCount = 40;
+
+            for (let i = 0; i < petalCount; i++) {
                 const petal = document.createElement('div');
-                petal.className = 'petal';
+                const petalClass = petalClasses[Math.floor(Math.random() * petalClasses.length)];
+                petal.className = 'petal ' + petalClass;
                 petal.style.left = Math.random() * 100 + '%';
-                const size = (Math.random() * 12 + 8) + 'px';
+                const size = (Math.random() * 12 + 10) + 'px';
                 petal.style.width = size;
                 petal.style.height = size;
-                petal.style.background = colors[Math.floor(Math.random() * colors.length)];
-                petal.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                petal.style.animationDelay = (Math.random() * 15) + 's';
+                petal.style.animationDuration = (Math.random() * 10 + 8) + 's';
+                petal.style.animationDelay = (Math.random() * 20) + 's';
                 container.appendChild(petal);
             }
         }
-
-        setTimeout(() => {
-            document.querySelectorAll('.envelope-overlay .animate-in').forEach(el => el.classList.add('visible'));
-        }, 300);
     </script>
 </body>
 </html>
